@@ -30,6 +30,7 @@ elif page == "Infos":
 	date_fin = st.date_input('Date de fin de cotation', datetime.date(2022, 1, 1))
 	dataa = web.DataReader(ticker, data_source = "yahoo", start = date_debut, end = date_fin)
 	radio = st.radio("Ajouter un ou plusieurs cours", ('Cours unique', 'Multiple cours'))
+	st.line_chart(dataa)
 	st.table(dataa)
 
 	info_ticker = pd.DataFrame({"Ticker": [ticker], "Date debut": [date_debut], "Date fin": [date_fin]})
@@ -37,6 +38,8 @@ elif page == "Infos":
 
 else:
 	st.title("Liste des utilisateurs et historique des transactions")
+
+	ddd = pd.read_csv()
 
 	ddd = {"Nom": nom, "Prénom": prenom, "Date de passage à l'ordre": date_fin, "Action choisie": ticker, "Quantité" : "None", "Valeur de la transaction" : ""}
 	infos_data = pd.DataFrame(ddd)
